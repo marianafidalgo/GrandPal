@@ -1,0 +1,9 @@
+sudo apt install ffmpeg
+
+pip install gTTS
+
+pip install pydub
+
+sudo -H pip3 install pyalsaaudio
+
+curl https://get.pimoroni.com/scrollphat | bash
