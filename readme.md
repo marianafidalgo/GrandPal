@@ -12,12 +12,12 @@
 
 
 <!-- PROJECT LOGO -->
-<br />
+<!-- <br />
 <p align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
-</p>
+</p> -->
 
 
 
@@ -133,7 +133,7 @@ TODO
 
 Mariana Fidalgo
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/marianafidalgo/GrandPal](https://github.com/marianafidalgo/GrandPal)
 
 
 
