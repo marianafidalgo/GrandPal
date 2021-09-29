@@ -32,7 +32,7 @@ def get_weather():
     print(f"Humidity: {humidity}")
     print(f"Pressure: {pressure}")
     print(f"Weather Report: {report[0]['description']}")
-    return "Today in Lisbon we have "+ str(report[0]['description']) + "and it is"  + str("{:.0f}".format(temperature)) + "celsius"
+    return "Hoje em lisboa temos " +str("{:.0f}".format(temperature)) + "graus celsius"
   else:
     # showing the error message
     print("Error in the HTTP request")

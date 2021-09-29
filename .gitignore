@@ -1,0 +1,4 @@
+output-daily-8
+tokenizer
+*.wav
+__pycache__

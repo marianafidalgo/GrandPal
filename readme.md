@@ -101,6 +101,10 @@ List of things you need:
   ```sh
   sudo apt-get install mpg123
   ```
+* speech recognition
+  ```sh
+  pip3 install speech_recognition
+  ```
 -Install in PC:
 * flask
   ```sh

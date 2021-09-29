@@ -32,4 +32,4 @@ def input():
 
 
 if __name__ == "__main__":
-    app.run(host='192.168.1.7', port=4000, debug=True)
+    app.run(host='192.168.1.85', port=4000, debug=True)
