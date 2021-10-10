@@ -1,7 +1,6 @@
-from transformers import AutoModelWithLMHead, AutoTokenizer, AutoConfig
-import torch
 from flask import Flask
 from common import cache
+import torch
 
 #def user_input():
   #get_audio()
@@ -31,18 +30,11 @@ from common import cache
 #           return text
 
 
-def chat(raw):
-    tokenizer = AutoTokenizer.from_pretrained('tokenizer', config=AutoConfig.from_pretrained('microsoft/DialoGPT-small'))
-    model = AutoModelWithLMHead.from_pretrained('output-daily-8')
+def chat(raw, model, tokenizer):
+
     chat_history_ids = cache.get("chat_history_ids")
     bot_input_ids = cache.get("bot_input_ids")
     step = cache.get("step")
-    print("step", step)
-    #while raw != "stop":
-        #for step in range(4):
-            # encode the new user input, add the eos_token and return a tensor in Pytorch
-            #raw = input(">> User:")
-            #raw = user_input()
     if raw == "stop":
         bot_input_ids = []
         print("Stop")
@@ -53,19 +45,11 @@ def chat(raw):
         print("Restart")
 
     new_user_input_ids = tokenizer.encode(raw + tokenizer.eos_token, return_tensors='pt')
-    # print(new_user_input_ids)
 
     # append the new user input tokens to the chat history
     bot_input_ids = torch.cat([chat_history_ids, new_user_input_ids], dim=-1) if step > 0 else new_user_input_ids
 
     # generate response,
-    '''
-    num_beams=5,
-    no_repeat_ngram_size=2,
-    num_return_sequences=1,
-    early_stopping=True,
-    temperature = 0.7 # increasing the likelihood of high probability words and decreasing the likelihood of low probability words
-    '''
     chat_history_ids = model.generate(
         bot_input_ids,
         max_length=150,
@@ -79,8 +63,6 @@ def chat(raw):
 
     # pretty print last ouput tokens from bot
     output = tokenizer.decode(chat_history_ids[:, bot_input_ids.shape[-1]:][0], skip_special_tokens=True)
-    #print("Bot: {}".format(output))
-    #play_output(output)
     cache.set("chat_history_ids", chat_history_ids)
     cache.set("bot_input_ids", bot_input_ids)
     cache.set("step", step+1)
