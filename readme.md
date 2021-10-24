@@ -51,7 +51,7 @@
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
-Master Thesis: My "robot conversation partner" - Development of time-based memory cues for elderly-robot interaction (ongoing)
+Master Thesis: Open-domain Conversational Agent based on Pre-Trained Transformers for Elderly-Robot Interaction (ongoing)
 
 Motivation:
 * A project that solves a problem and helps others
@@ -73,63 +73,33 @@ TODO
 
 ### Prerequisites
 
-List of things you need:
+* List of things you need:
+  ```sh
+  pip install -r requirements.txt
+  ```
 
--Install in Raspberry Pi console
-* ffmpeg
-  ```sh
-  sudo apt install ffmpeg
-  ```
-* gTTS
-  ```sh
-  pip3 install gTTS
-  ```
-* pydub
-  ```sh
-  pip3 install pydub
+### Mini-Babel
 
-  ```
-* pyalsaaudio
-  ```sh
-  sudo -H pip3 install pyalsaaudio
-  ```
-* scrollphat
-  ```sh
-  curl https://get.pimoroni.com/scrollphat | bash
-  ```
-* mpg123
-  ```sh
-  sudo apt-get install mpg123
-  ```
-* speech recognition
-  ```sh
-  pip3 install speech_recognition
-  ```
--Install in PC:
-* flask
-  ```sh
-  sudo apt install flask
-  ```
-* torch
-  ```sh
-  sudo apt install torch
-  ```
-* transformers
-  ```sh
-  pip install transformers --upgrade
-  ```
-### Installation and Usage
+When it comes to evaluating the performance, the ideal would be to have a human-based evaluation.
+Specially in a system where paraphrasing can lead to inferior metrics, despite still having a good performance.
+Consequently, to add a score to the translated dataset, a small interface was developed.
+In this User Interface: http://20.108.185.129:8501/ , from a dataset storing almost 8000 source and target segments pairs, 14 random are displayed to the user. The user has then the option to classify the translation from 1-10.
 
-TODO
+## GrandPal-Chat
 
+To add a score to the performance of the Chatbot, a small interface was developed. In this User Interface: http://20.108.185.129:8052/ ,
+the user has a chance to engage in a conversation with the system.
+After a six utterance interaction with the system, the user has then the option to classify the conversation from 1-10.
+One more advantage of this evaluation is allowing to analyze the ability of the model to have context during the dialogue.
+Since the system, when predicting a new reply, has the conversation history as input.
+Considering that the model was only trained with 7 sentences for context, the input only stores the last 6 uttered sentences.
 
+## GrandPal-Model
 
-<!-- USAGE EXAMPLES -->
-## Usage
-
-TODO
-
-
+* model-app: has the code to build the bot along with a zip contained the fine-tuned model
+* model-training: has the code to train and evaluate the model, along with the directory containing the datasets
+* mt-api: has the zip containing the mt open source model
+* raspberry: has the code to give the bot a body (specifically a Raspberry Pi Zero W). Running the client in the raspberry and the server on a computer, it is possible to build a physical voice assistant. It also comprises a weather and radio API.
 
 
 <!-- CONTACT -->
