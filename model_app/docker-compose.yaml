@@ -1,6 +1,23 @@
 version: "3.3"
 services:
-  web:
+  bot-api:
     build: .
     ports:
       - "5000:5000"
+    networks:
+    - mynetwork
+  translation-api:
+    image: easynmt/api:2.0-cpu
+    ports:
+      - "24080:80"
+    networks:
+    - mynetwork
+  streamlit-app:
+    image: grandpal_chat_streamlit
+    ports:
+      - "8052:8501"
+    networks:
+    - mynetwork
+
+networks:
+  mynetwork:
