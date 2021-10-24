@@ -38,6 +38,7 @@ Motivation:
 This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 * [DialoGPT](https://huggingface.co/microsoft/DialoGPT-small)
 * [Flask](https://flask.palletsprojects.com/en/2.0.x/)
+* [Streamlit](https://streamlit.io/)
 * [Raspberry Pi Zero W](https://www.raspberrypi.org/products/raspberry-pi-zero-w/)
 
 
