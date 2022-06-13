@@ -77,6 +77,28 @@ Considering that the model was only trained with 7 sentences for context, the in
 * mt-api: has the zip containing the mt open source model
 * raspberry: has the code to give the bot a body (specifically a Raspberry Pi Zero W). Running the client in the raspberry and the server on a computer, it is possible to build a physical voice assistant. It also comprises a weather and radio API.
 
+# Local GrandPal
+
+## Spin up GrandPal locally in Docker
+* Install Docker
+* To build the image that holds the streamlit server, go to `GrandPal/GrandPal-Chat/` and run:
+  ```
+  docker build -t grandpal_chat_streamlit .
+  ```
+* To spin Grandpal locally:
+  1. Go to ``GrandPal/GrandPal-Model/model-app/`
+  2. Unzip the GrandPal zip file. (In case this doesn't work, download it from (here)[https://github.com/marianafidalgo/GrandPal/blob/master/GrandPal-Model/model-app/GrandPal-20211024T182801Z-001.zip] and unzip it)
+  3. Give the Unzipped directory the name `Grandpal`
+  4. Run:
+    ```
+    docker-compose build
+    docker-compose up
+    ```
+
+## Connect to GrandPal:
+
+Open the browser in [Grandpal Streamlit](http://localhost:8052/)
+The first interaction will take a while since it is downloading all the necessary models.
 
 <!-- CONTACT -->
 ## Contact
