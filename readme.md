@@ -86,7 +86,7 @@ Considering that the model was only trained with 7 sentences for context, the in
   docker build -t grandpal_chat_streamlit .
   ```
 * To spin Grandpal locally:
-  1. Go to ``GrandPal/GrandPal-Model/model-app/`
+  1. Go to `GrandPal/GrandPal-Model/model-app/`
   2. Unzip the GrandPal zip file. (In case this doesn't work, download it from (here)[https://github.com/marianafidalgo/GrandPal/blob/master/GrandPal-Model/model-app/GrandPal-20211024T182801Z-001.zip] and unzip it)
   3. Give the Unzipped directory the name `Grandpal`
   4. Run:
